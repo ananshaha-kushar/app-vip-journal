@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.2, user-scalable=yes">
+  <title>球探 · 可信分析站点介绍</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #fbe9e7 0%, #fce4d6 50%, #fde8cd 100%);
+      min-height: 100vh;
+      line-height: 1.7;
+      padding: 24px 16px;
+      color: #3e2c23;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-wrapper {
+      max-width: 1040px;
+      width: 100%;
+    }
+
+    /* 顶部导航 */
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(255, 242, 234, 0.7);
+      backdrop-filter: blur(6px);
+      padding: 14px 24px;
+      border-radius: 48px;
+      margin-bottom: 48px;
+      box-shadow: 0 6px 12px rgba(180, 110, 70, 0.08);
+    }
+
+    .nav-brand {
+      font-weight: 600;
+      font-size: 1.35rem;
+      letter-spacing: 0.02em;
+      color: #6f4a38;
+      background: #fff2ea;
+      padding: 4px 16px;
+      border-radius: 40px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #5b3a2b;
+      font-weight: 500;
+      font-size: 1.05rem;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      transition: 0.2s;
+    }
+
+    .nav-links a:hover {
+      border-bottom-color: #b9856b;
+      color: #3a231a;
+    }
+
+    .nav-links .link-special {
+      background: #ffffffd9;
+      padding: 4px 20px;
+      border-radius: 40px;
+      border-bottom: none;
+      box-shadow: 0 2px 6px rgba(160, 100, 60, 0.08);
+    }
+
+    /* hero 区域 */
+    .hero {
+      text-align: center;
+      background: rgba(255, 247, 240, 0.65);
+      backdrop-filter: blur(4px);
+      padding: 52px 32px 44px;
+      border-radius: 56px;
+      margin-bottom: 44px;
+      box-shadow: 0 12px 28px rgba(140, 80, 40, 0.06);
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 550;
+      color: #4d2f21;
+      letter-spacing: 0.02em;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 0 auto 20px;
+      font-size: 1.2rem;
+      color: #4c362a;
+    }
+
+    .hero strong {
+      font-weight: 600;
+      color: #744f38;
+    }
+
+    /* 白色卡片通用 */
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      margin: 44px 0;
+    }
+
+    .card {
+      flex: 1 1 240px;
+      background: #ffffffea;
+      backdrop-filter: blur(2px);
+      border-radius: 32px;
+      padding: 32px 24px 28px;
+      box-shadow: 0 10px 18px rgba(110, 65, 35, 0.06);
+      transition: 0.2s ease;
+      border: 1px solid rgba(255, 215, 190, 0.3);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 28px rgba(120, 70, 35, 0.08);
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      font-weight: 520;
+      margin-bottom: 16px;
+      color: #55392a;
+      border-left: 5px solid #dbaa8d;
+      padding-left: 16px;
+    }
+
+    .card p {
+      color: #3e2b20;
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+
+    .card a {
+      display: inline-block;
+      background: #f1ddd0;
+      padding: 6px 22px;
+      border-radius: 60px;
+      color: #3e2519;
+      font-weight: 500;
+      text-decoration: none;
+      margin-top: 8px;
+      transition: 0.2s;
+      border: 1px solid #e7cbbc;
+      font-size: 0.95rem;
+    }
+
+    .card a:hover {
+      background: #e5ccbb;
+      border-color: #cda68b;
+    }
+
+    /* 场景模块 (三个卡片) */
+    .scene-section {
+      margin: 40px 0 32px;
+    }
+
+    .scene-section h2 {
+      font-size: 1.8rem;
+      font-weight: 500;
+      color: #4d3020;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .scene-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+    }
+
+    .scene-card {
+      flex: 1 1 260px;
+      background: #fbefe7;
+      border-radius: 40px;
+      padding: 28px 22px 26px;
+      box-shadow: inset 0 1px 0 #fff5ed, 0 12px 20px rgba(110, 65, 30, 0.04);
+      transition: 0.15s;
+    }
+
+    .scene-card h4 {
+      font-size: 1.3rem;
+      font-weight: 540;
+      margin-bottom: 10px;
+      color: #583d2d;
+    }
+
+    .scene-card p {
+      color: #3b2a1e;
+      font-size: 0.98rem;
+    }
+
+    /* 常见说明 (FAQ 摘要) */
+    .faq-block {
+      background: #fffdf9;
+      border-radius: 48px;
+      padding: 36px 32px;
+      margin: 48px 0 28px;
+      box-shadow: 0 6px 14px rgba(90, 55, 30, 0.04);
+    }
+
+    .faq-block h3 {
+      font-weight: 520;
+      font-size: 1.6rem;
+      color: #543726;
+      margin-bottom: 24px;
+    }
+
+    .faq-item {
+      padding: 14px 0;
+      border-bottom: 1px solid #f0dcd0;
+    }
+
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+
+    .faq-q {
+      font-weight: 530;
+      color: #3d281d;
+      margin-bottom: 4px;
+      font-size: 1.05rem;
+    }
+
+    .faq-a {
+      color: #4d3628;
+      padding-left: 8px;
+    }
+
+    .faq-a a {
+      color: #744f38;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+      text-decoration-color: #d7af98;
+      font-weight: 500;
+    }
+
+    .faq-a a:hover {
+      color: #2f1d13;
+    }
+
+    /* 底部 */
+    .footer {
+      margin-top: 48px;
+      text-align: center;
+      color: #684d3b;
+      font-size: 0.9rem;
+      border-top: 1px solid #e6cfbf;
+      padding-top: 28px;
+      letter-spacing: 0.01em;
+    }
+
+    .footer a {
+      color: #553b2b;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        gap: 16px;
+        align-items: stretch;
+        border-radius: 36px;
+        padding: 18px 20px;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 18px;
+      }
+
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      .hero p {
+        font-size: 1.05rem;
+      }
+
+      .card {
+        flex: 1 1 100%;
+      }
+
+      .scene-card {
+        flex: 1 1 100%;
+      }
+
+      .faq-block {
+        padding: 28px 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 40px 18px 34px;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrapper">
+  <!-- 导航 -->
+  <nav class="nav">
+    <div class="nav-brand">⚡ 球探观察</div>
+    <div class="nav-links">
+      <a href="#intro">概览</a>
+      <a href="#scenes">方向</a>
+      <a href="#faq">说明</a>
+      <a href="https://qiutan-scouting.com" class="link-special">球探</a>
+    </div>
+  </nav>
+
+  <!-- hero 介绍 -->
+  <section class="hero" id="intro">
+    <h1>站点介绍 · 可信视角</h1>
+    <p>
+      <strong>球探</strong> 是一个围绕数据观察与信息整合的轻量平台，致力于呈现有条理、
+      可回溯的分析线索。这里没有夸大的断言，只有温和且务实的资料汇集。
+    </p>
+    <p>
+      无论你关注的是团队动向、选手近况，还是竞争格局的变化，都可以借助
+      <a href="https://qiutan-scouting.com" style="background:#f1ddd0; padding:2px 12px; border-radius:40px; color:#3e2519; text-decoration:none; font-weight:500; border:1px solid #eacebd;">球探</a>
+      获得一份沉静的参考。
+    </p>
+  </section>
+
+  <!-- 三个介绍卡片：特征 / 可信说明 -->
+  <div class="card-grid">
+    <div class="card">
+      <h3>克制 · 真实</h3>
+      <p>所有内容均来自可交叉验证的公开信息，避免主观臆断与情绪化描述。用平实的语言传递客观轮廓。</p>
+    </div>
+    <div class="card">
+      <h3>结构 · 脉络</h3>
+      <p>按赛季、赛事或团队维度梳理，便于快速定位感兴趣的时间段或对手。减少冗余，突出关键节点。</p>
+    </div>
+    <div class="card">
+      <h3>可信 · 透明</h3>
+      <p>说明来源与判断依据，不故弄玄虚。每一个结论背后都有可追溯的线索，供你自行判断。</p>
+    </div>
+  </div>
+
+  <!-- 三个场景模块 -->
+  <section class="scene-section" id="scenes">
+    <h2>🪐 常见使用场景</h2>
+    <div class="scene-grid">
+      <div class="scene-card">
+        <h4>📋 赛前信息整合</h4>
+        <p>将近期交锋记录、阵容变化、场地因素等汇总为简明清单，方便赛前快速回顾。节省反复查找的时间。</p>
+      </div>
+      <div class="scene-card">
+        <h4>🔍 趋势与对比</h4>
+        <p>横向对比不同阶段的数据表现，发现状态起伏或战术调整带来的影响。适合做长期观察的辅助备忘。</p>
+      </div>
+      <div class="scene-card">
+        <h4>🧩 背景查阅</h4>
+        <p>了解一支队伍、一名选手或某个联赛的沿革与传统，帮助理解当下的竞争语境。内容平实，不渲染戏剧性。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 常见说明 / FAQ 摘要 -->
+  <div class="faq-block" id="faq">
+    <h3>📌 常见说明</h3>
+
+    <div class="faq-item">
+      <div class="faq-q">Q：球探 的内容更新频率如何？</div>
+      <div class="faq-a">目前以重点赛事周期与关键节点为主进行梳理，不定期补充。不做日更式推送，更注重内容质量与可信度。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Q：数据与观点来源可靠吗？</div>
+      <div class="faq-a">所有引用均来自公开赛事记录、官方统计或主流媒体。我们不生产虚假信息，只做整理与转述。</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Q：如何开始浏览？</div>
+      <div class="faq-a">
+        你可以直接访问 <a href="https://qiutan-scouting.com">球探</a> 首页，或通过导航进入不同栏目。
+        页面结构清晰，没有弹窗干扰，适合安静阅读。
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Q：是否有付费内容或推广？</div>
+      <div class="faq-a">没有。当前站点无付费墙、无广告联盟，仅提供无偿的信息整合服务。未来若有变化会提前说明。</div>
+    </div>
+  </div>
+
+  <!-- 底部 -->
+  <footer class="footer">
+    <p>
+      基于公开资料整理 · 保持克制与真实 ·
+      <a href="https://qiutan-scouting.com">球探</a>
+    </p>
+    <p style="margin-top: 12px; opacity: 0.75; font-size: 0.85rem;">
+      内容仅供参考，不构成任何决策建议
+    </p>
+  </footer>
+</div>
+</body>
+</html>
